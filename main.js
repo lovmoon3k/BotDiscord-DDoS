@@ -31,14 +31,13 @@ if (message.content.startsWith(prefix)) {
 		var arr = message.content.split(" ");
 		var target = arr[1];
 		var req = arr[2];
-		var time = arr[3];
-		var req_per_sec = req/(time/1000);
+		var req_per_sec = 1/req;
 		
 		message.channel.send('Running');
 		function sendReq() {
 				request(target, function (error, response, body){
-				if(error) {console.log(error)};
-				console.log('OK')
+				if(error) {console.log(error)}
+					else{console.log('OK')}
 				}
 			)}
 		setInterval(sendReq, req_per_sec)
