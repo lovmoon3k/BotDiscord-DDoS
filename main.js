@@ -60,4 +60,4 @@ if (message.content.startsWith(prefix)) {
 
 })
 
-client.login(process.ENV.TOKEN)
+client.login(process.env.TOKEN)
