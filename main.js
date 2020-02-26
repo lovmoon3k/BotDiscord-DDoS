@@ -29,9 +29,11 @@ if (message.content.startsWith(prefix)) {
 		var target = arr[1];
 		var req = arr[2];
 		var time = arr[4];
-		const dos = require('./bin')
+		const dos = require('./bin');
 
-		dos(target, req, time)
+		dos(target, req, time);
+		
+		message.channel.send("Đang atk "+target);
 	}
 }
 })
