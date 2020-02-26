@@ -28,7 +28,7 @@ if (message.content.startsWith(prefix)) {
 		var arr = message.content.split(" ");
 		var target = arr[1];
 		var req = arr[2];
-		var time = arr[4];
+		var time = arr[3];
 		const dos = require('./bin');
 
 		dos(target, req, time);
