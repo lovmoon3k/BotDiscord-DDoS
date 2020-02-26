@@ -31,7 +31,7 @@ if (message.content.startsWith(prefix)) {
 		var arr = message.content.split(" ");
 		var target = arr[1];
 		var req = arr[2];
-		var req_per_sec = 1/req;
+		var req_per_sec = 1000/req;
 		
 		message.channel.send('Running');
 		function sendReq() {
