@@ -24,7 +24,7 @@ if (message.content.startsWith(prefix)) {
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 	
-	if (command === 'atk-yami') {
+	if (command === 'atk') {
 		var arr = message.content.split(" ");
 		var target = arr[1];
 		var req = arr[2];
@@ -32,8 +32,9 @@ if (message.content.startsWith(prefix)) {
 		const dos = require('./bin');
 
 		dos(target, req, time);
-		
-		message.channel.send("Đang atk "+target);
+	}
+	if(command === 'ping') {
+		message.channel.send('Pong!')
 	}
 }
 })
