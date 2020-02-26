@@ -32,7 +32,7 @@ if (message.content.startsWith(prefix)) {
 		var target = arr[1];
 		var req = arr[2];
 		var time = arr[3];
-		var req_per_milisec = req/time;
+		var req_per_sec = req/(time/1000);
 		
 		message.channel.send('Running');
 		function sendReq() {
@@ -41,7 +41,7 @@ if (message.content.startsWith(prefix)) {
 				console.log('OK')
 				}
 			)}
-		setInterval(sendReq, time)
+		setInterval(sendReq, req_per_sec)
 		}
 	}
 })
