@@ -56,4 +56,4 @@ if (message.content.startsWith(prefix)) {
 }
 })
 
-client.login(process.env.TOKEN)
+client.login(auth.token)
