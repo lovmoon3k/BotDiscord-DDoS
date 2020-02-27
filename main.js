@@ -42,13 +42,14 @@ if (message.content.startsWith(prefix)) {
 					})
 				}
 		if (arr[1] === 'on'){
+			message.channel.send('**Attacking!**')
 			target = arr[2],
 			req = arr[3]||NULL;
 			time = 1000/Number(arr[3]);
 			ATK = setInterval(() => sendReq(), time)
 		}
 		if (arr[1] === 'off'){
-			message.channel.send('OFF');
+			message.channel.send('**Canceled!**');
 			clearInterval(ATK);
 		}
 	}
