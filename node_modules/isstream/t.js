@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const request = require('request');
 const auth = require('./auth.json');
-var ATK;
+
 
 
 client.on('ready', () => {
@@ -18,15 +18,13 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-
+var ATK;
 if (message.author.bot) return;
 const prefix = auth.prefix;
 if (message.content.startsWith(prefix)) {
 	
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-	
-//	clearInterval(ATK);
 	
 	if(command === 'ping') {
 		message.channel.send('Pong!')
@@ -35,25 +33,33 @@ if (message.content.startsWith(prefix)) {
 		var arr = message.content.split(" "),
 			target,
 			req,
-			time;
+			req_per_sec;
 			function sendReq() {
+				if (typeof(target) === 'undefined') {console.log('Sẵn sàng')}
+				else {
 				request(target, function (error, response, body){
 						if(error) {console.log(error)}
 						else{console.log('OK')}
-					})
-				}
+					}
+				)}
+			}
+		console.log(arr[1])
 		if (arr[1] === 'ons'){
-			target = arr[2],
-			req = arr[3]||NULL;
-			time = 1000/Number(arr[3]);
-			ATK = setInterval(() => sendReq(), time)
+			target = arr[2];
+			req === arr[3];
+			req_per_sec === 1000/req;
+			message.channel.send('ON');
 		}
 		if (arr[1] === 'offs'){
+			target = arr[2];
+			req_per_sec === 10000;
 			message.channel.send('OFF');
 			clearInterval(ATK);
 		}
+		ATK = setInterval(() => sendReq(), req_per_sec)
 	}
 }
+
 })
 
 client.login("NjgyMTkwOTE1NTA2Mjc0MzQ4.XldBHQ.68NbG8AzkrCq2_-Dfjfu_vJUv_k")
