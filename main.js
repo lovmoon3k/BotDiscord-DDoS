@@ -26,7 +26,6 @@ if (message.content.startsWith(prefix)) {
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 	
-	
 	if(command === 'ping') {
 		message.channel.send('Pong!')
 	}
@@ -54,6 +53,7 @@ if (message.content.startsWith(prefix)) {
 		if (arr[1] === 'off'){
 			target = arr[2];
 			req_per_sec === 10000;
+			clearInterval(ATK);
 		}
 		ATK = setInterval(() => sendReq(), req_per_sec)
 	}
