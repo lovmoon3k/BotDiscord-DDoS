@@ -42,13 +42,13 @@ if (message.content.startsWith(prefix)) {
 						else{console.log('OK')}
 					})
 				}
-		if (arr[1] === 'ons'){
+		if (arr[1] === 'on'){
 			target = arr[2],
 			req = arr[3]||NULL;
 			time = 1000/Number(arr[3]);
 			ATK = setInterval(() => sendReq(), time)
 		}
-		if (arr[1] === 'offs'){
+		if (arr[1] === 'off'){
 			message.channel.send('OFF');
 			clearInterval(ATK);
 		}
@@ -56,4 +56,4 @@ if (message.content.startsWith(prefix)) {
 }
 })
 
-client.login("NjgyMTkwOTE1NTA2Mjc0MzQ4.XldBHQ.68NbG8AzkrCq2_-Dfjfu_vJUv_k")
+client.login(process.env.TOKEN)
