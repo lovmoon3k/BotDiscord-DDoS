@@ -53,6 +53,7 @@ if (message.content.startsWith(prefix)) {
 		if (arr[1] === 'off'){
 			target = arr[2];
 			req_per_sec === 10000;
+			message.channel.send('OFF');
 			clearInterval(ATK);
 		}
 		ATK = setInterval(() => sendReq(), req_per_sec)
