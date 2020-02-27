@@ -26,7 +26,6 @@ if (message.content.startsWith(prefix)) {
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 	
-//	clearInterval(ATK);
 	
 	if(command === 'ping') {
 		message.channel.send('Pong!')
