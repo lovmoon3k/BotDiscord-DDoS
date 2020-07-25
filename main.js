@@ -38,7 +38,6 @@ if (message.content.startsWith(prefix)) {
 			function sendReq() {
 				request(target, function (error, response, body){
 						if(error) {console.log(error)}
-						else{console.log('OK')}
 					})
 				}
 		if (arr[1] === 'on'){
