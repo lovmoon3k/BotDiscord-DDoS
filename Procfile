@@ -1,1 +1,1 @@
-worker: node main.js
+worker: npm install -g pm2 && pm2 link imlm252zz283xfz erubs62m26iwswi && pm2 start main.js -i max --deep-monitoring --attach
